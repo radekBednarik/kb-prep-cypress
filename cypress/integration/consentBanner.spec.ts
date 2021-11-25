@@ -1,7 +1,8 @@
 import { Homepage } from "../pageObjects/homepage.basePage";
 
+const homepage = new Homepage();
+
 describe("consent banner", () => {
-  const homepage = new Homepage();
   beforeEach(() => {
     homepage.visit();
   });
@@ -12,6 +13,12 @@ describe("consent banner", () => {
 
   it("should not be visible after accepting", () => {
     homepage.consentBanner.accept();
+    homepage.consentBanner.isBannerNotVisible();
+  });
+
+  it("should not be visible after accepting & reload", () => {
+    homepage.consentBanner.accept();
+    homepage.reload();
     homepage.consentBanner.isBannerNotVisible();
   });
 });

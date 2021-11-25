@@ -4,18 +4,27 @@ export class ConsentBanner {
   constructor() {
     this.selectors = {
       linkAccept: 'a[id*="approveLink"]',
+      divBanner: 'div[id*="cookiePanelUP"]',
     };
   }
 
+  get divBanner() {
+    return cy.get(this.selectors.divBanner);
+  }
+
+  get linkAccept() {
+    return cy.get(this.selectors.linkAccept);
+  }
+
   isBannerVisible() {
-    cy.get(this.selectors.linkAccept).should("be.visible");
+    this.divBanner.should("be.visible");
   }
 
   isBannerNotVisible() {
-    cy.get(this.selectors.linkAccept).should("not.be.visible");
+    this.divBanner.should("not.be.visible");
   }
 
   accept() {
-    cy.get(this.selectors.linkAccept).click();
+    this.linkAccept.click();
   }
 }

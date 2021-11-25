@@ -1,1 +1,6 @@
-{}
+{
+  "baseUrl": "https://kb.cz",
+  "watchForFileChanges": false,
+  "video": false,
+  "videoUploadOnPasses": false
+}

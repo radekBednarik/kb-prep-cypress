@@ -7,7 +7,7 @@ export class Homepage extends BasePage {
 
   constructor() {
     super();
-    this.url = "https://www.kb.cz/";
+    this.url = "/";
     this.consentBanner = new ConsentBanner();
   }
 
