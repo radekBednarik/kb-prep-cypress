@@ -1,0 +1,17 @@
+import { BasePage } from "./basePage";
+import { ConsentBanner } from "../pageComponents/consentBanner";
+
+export class Homepage extends BasePage {
+  private url: string;
+  public consentBanner: ConsentBanner;
+
+  constructor() {
+    super();
+    this.url = "https://www.kb.cz/";
+    this.consentBanner = new ConsentBanner();
+  }
+
+  visit() {
+    super.visit(this.url);
+  }
+}
