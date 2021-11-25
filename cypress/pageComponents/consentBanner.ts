@@ -16,15 +16,16 @@ export class ConsentBanner {
     return cy.get(this.selectors.linkAccept);
   }
 
-  isBannerVisible() {
+  isVisible() {
     this.divBanner.should("be.visible");
   }
 
-  isBannerNotVisible() {
+  isNotVisible() {
     this.divBanner.should("not.be.visible");
   }
 
   accept() {
     this.linkAccept.click();
+    cy.getCookie("cookieLawAccepted");
   }
 }

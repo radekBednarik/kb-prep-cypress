@@ -6,4 +6,6 @@ export class BasePage {
   reload() {
     cy.reload({ timeout: 60000 });
   }
+
+  
 }
