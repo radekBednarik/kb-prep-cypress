@@ -4,16 +4,16 @@ export class ConsentBanner {
   constructor() {
     this.selectors = {
       linkAccept: 'a[id*="approveLink"]',
-      divBanner: 'div[id*="cookiePanelUP"]',
+      divBanner: "div#cookie-law",
     };
   }
 
   get divBanner() {
-    return cy.get(this.selectors.divBanner);
+    return cy.get(this.selectors.divBanner, { timeout: 10000 });
   }
 
   get linkAccept() {
-    return cy.get(this.selectors.linkAccept);
+    return cy.get(this.selectors.linkAccept, { timeout: 10000 });
   }
 
   isVisible() {
@@ -25,7 +25,7 @@ export class ConsentBanner {
   }
 
   accept() {
-    this.linkAccept.click();
+    this.linkAccept.click().should("not.exist");
     cy.getCookie("cookieLawAccepted");
   }
 }
