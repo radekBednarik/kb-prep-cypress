@@ -15,4 +15,10 @@ describe("consent banner", () => {
     homepage.consentBanner.accept();
     homepage.consentBanner.isNotVisible();
   });
+
+  it("should not be visible after accepting & reload", () => {
+    homepage.consentBanner.accept();
+    homepage.reload();
+    homepage.consentBanner.doesNotExist();
+  });
 });

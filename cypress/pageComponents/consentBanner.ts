@@ -24,6 +24,10 @@ export class ConsentBanner {
     this.divBanner.should("not.be.visible");
   }
 
+  doesNotExist() {
+    this.divBanner.should("not.exist");
+  }
+
   accept() {
     this.linkAccept.click().should("not.exist");
     cy.getCookie("cookieLawAccepted");
